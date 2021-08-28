@@ -1,6 +1,6 @@
 {
     'name': 'Freja eID Integration',
-    'version': '14.0.0.0.1',
+    'version': '14.0.1.0.1',
     'author': 'Hemangi Rupareliya',
     'maintainer': 'Vertel AB',
     'contributors': 'Hemangi Rupareliya, Fredrik Avas',
