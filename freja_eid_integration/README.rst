@@ -29,7 +29,7 @@ Here are steps to configure Freja eId for test and production.
 2. Need to create a record like following inside Setting >> Users & Companies >> Oauth Providers.
 
 Test:
-
+```
 Name: FrejaeID Test
 Client ID: cliente id of test
 Client secret: client secret of test
@@ -41,9 +41,11 @@ Authentication URL: https://oidc-ct.test.frejaeid.com/oidc/authorize
 Scope: openid profile email https://frejaeid.com/oidc/scopes/personalIdentityNumber
 Validation URL: https://oidc-ct.test.frejaeid.com/oidc/token
 Data URL: https://oidc-ct.test.frejaeid.com/oidc/userinfo
+```
 
 Production:
 
+```
 Name: FrejaeID
 Client ID: client id of prod
 Client secret: client secret of prod
@@ -55,4 +57,4 @@ Authentication URL: https://oidc.prod.frejaeid.com/oidc/authorize
 Scope: openid profile email https://frejaeid.com/oidc/scopes/personalIdentityNumber
 Validation URL: https://oidc.prod.frejaeid.com/oidc/token
 Data URL: https://oidc.prod.frejaeid.com/oidc/userinfo
-
+```
