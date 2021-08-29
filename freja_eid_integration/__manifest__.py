@@ -8,9 +8,9 @@
     'license': 'AGPL-3',
     'category': 'Tools',
     'depends': [
-        'auth_oauth',
+        'auth_oauth',  # Odoo SA
         'partner_ssn', # https://github.com/VerifiedEmailEurope/ve-odoo-base/tree/14.0
-        'portal',
+        'portal',      # Odoo SA
         'partner_extenstion_verifiedemail' # https://github.com/VerifiedEmailEurope/ve-odoo-base/tree/14.0
     ],
     'data': {
