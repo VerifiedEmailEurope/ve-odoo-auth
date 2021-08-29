@@ -30,7 +30,7 @@ Here are steps to configure Freja eId for test and production.
 
 Test:
 
-Name: FrejaeID
+Name: FrejaeID Test
 Client ID: cliente id of test
 Client secret: client secret of test
 Redirect URI for user login: domain like 'https://erp.verified-email.com/web'
