@@ -1,6 +1,6 @@
 {
     'name': 'Freja eID Integration',
-    'version': '14.0.1.0.1',
+    'version': '14.0.1.0.2',
     'author': 'Verified Email Europe AB',
     'maintainer': 'Verified Email Europe AB',
     'contributors': 'Hemangi Rupareliya, Verified Email Europe AB, Fredrik Arvas',
