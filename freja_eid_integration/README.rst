@@ -33,7 +33,7 @@ Test:
 Name: FrejaeID Test
 Client ID: cliente id of test
 Client secret: client secret of test
-Redirect URI for user login: domain like 'https://erp.verified-email.com/web'
+Redirect URI for user login: domain like 'https://test.verified-email.com/web'
 Allow OAuth2 password grant: Checked
 Provider name: Freja eID
 Body: Login with OpenID
@@ -49,7 +49,7 @@ Production:
 Name: FrejaeID
 Client ID: client id of prod
 Client secret: client secret of prod
-Redirect URI for user login: domain like 'https://erp.verified-email.com/web'
+Redirect URI for user login: domain like 'https://www.verified-email.com/web'
 Allow OAuth2 password grant: Checked
 Provider name: Freja eID
 Body: Login with OpenID
