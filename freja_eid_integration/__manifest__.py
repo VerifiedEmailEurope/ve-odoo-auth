@@ -1,6 +1,6 @@
 {
     'name': 'Freja eID Integration',
-    'version': '14.0.1.0.2',
+    'version': '14.0.1.0.3',
     'author': 'Verified Email Europe AB',
     'maintainer': 'Verified Email Europe AB',
     'contributors': 'Hemangi Rupareliya, Verified Email Europe AB, Fredrik Arvas',
@@ -9,11 +9,12 @@
     'category': 'Tools',
     'depends': [
         'auth_oauth',  # Odoo SA
-        'partner_ssn', # https://github.com/VerifiedEmailEurope/ve-odoo-base/tree/14.0
         'portal',      # Odoo SA
-        'partner_extenstion_verifiedemail' # https://github.com/VerifiedEmailEurope/ve-odoo-base/tree/14.0
+        'partner_extenstion_verifiedemail', # https://github.com/VerifiedEmailEurope/ve-odoo-base/tree/14.0
+        'mail_sender_whitelisting' # https://github.com/VerifiedEmailEurope/ve-odoo-mail/tree/14.0
     ],
     'data': {
+        'data/mail_templates.xml',
         'views/provider_views.xml',
         'views/portal_templates.xml'
     },
