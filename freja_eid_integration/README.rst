@@ -18,6 +18,8 @@ Version History
 new user sign or login from Freja eID. Also added SSN on user portal.Added source 'Freja eID' if user created from
 Freja eID.
 
+2. v14.0.1.0.3 - Added mail template to send user confirmation email on Freja eId registration.
+
 
 Configuration
 -------------
