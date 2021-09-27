@@ -52,11 +52,11 @@
                                                                     ${object.name or ''}
                                                                     <br/>
                                                                     <b>Primary email:</b>
-                                                                    ${'mailbox' in ctx and ctx['mailbox'] or ''} - This is
+                                                                    ${'alias' in ctx and ctx['alias'] or ''} - This is
                                                                     where we will deliver all messages to you.
                                                                     <br/>
                                                                     <b>Primary alias:</b>
-                                                                    ${'alias' in ctx and ctx['alias'] or ''} - This is your
+                                                                    ${'mailbox' in ctx and ctx['mailbox'] or ''} - This is your
                                                                     secure email-address. When other email to this
                                                                     address, we will make sure they are verified and
                                                                     that the message is secure and untouched by anyone
