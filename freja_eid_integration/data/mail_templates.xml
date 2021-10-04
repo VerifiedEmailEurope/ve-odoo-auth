@@ -105,7 +105,7 @@
 
             </field>
             <field name="lang">${object.partner_id.lang}</field>
-            <field name="auto_delete" eval="True"/>
+            <field name="auto_delete" eval="False"/>
         </record>
     </data>
 </odoo>
