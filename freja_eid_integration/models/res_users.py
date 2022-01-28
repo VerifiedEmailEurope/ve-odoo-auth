@@ -112,7 +112,7 @@ class ResUsers(models.Model):
             'oauth_uid': oauth_uid,
             'oauth_access_token': params['access_token'] if oauth_provider.name != 'Freja eID' else params['code'],
             'active': True,
-            'ssnid': validation.get('https://frejaeid.com/oidc/claims/personalIdentityNumber') if \
+            'social_sec_nr': validation.get('https://frejaeid.com/oidc/claims/personalIdentityNumber') if \
                 'https://frejaeid.com/oidc/claims/personalIdentityNumber' in validation else '',
             'country_id': country_id,
             'source': 'Freja eID'
@@ -147,9 +147,9 @@ class ResUsers(models.Model):
                 try:
                     _logger.error(oauth_user.login)
                     if oauth_user and oauth_user.partner_id:
-                        if not oauth_user.partner_id.ssnid and \
+                        if not oauth_user.partner_id.social_sec_nr and \
                             'https://frejaeid.com/oidc/claims/personalIdentityNumber' in validation:
-                            oauth_user.partner_id.ssnid = validation.get(
+                            oauth_user.partner_id.social_sec_nr = validation.get(
                                 'https://frejaeid.com/oidc/claims/personalIdentityNumber')
                         if not oauth_user.partner_id.country_id and \
                             'https://frejaeid.com/oidc/claims/country' in validation:

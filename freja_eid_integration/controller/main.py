@@ -23,7 +23,7 @@ class CustomerPortal(CP):
 
     def __init__(self, **args):
         self.OPTIONAL_BILLING_FIELDS.extend((
-            'ssnid',
+            'social_sec_nr',
         ))
         super(CustomerPortal, self).__init__(**args)
 
