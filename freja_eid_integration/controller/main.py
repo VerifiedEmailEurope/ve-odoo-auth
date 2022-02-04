@@ -58,7 +58,7 @@ class OAuthLoginFrejaeID(OAuthLogin):
             return_url = request.httprequest.url_root + 'auth_oauth/signin'
             state = self.get_state(provider)
             params = dict(
-                response_type='token' if provider['name'] != 'Freja eID' else 'code',
+                response_type='code', # old way was: response_type='token' if provider['name'] != 'Freja eID' else 'code',
                 client_id=provider['client_id'],
                 redirect_uri=return_url,
                 scope=provider['scope'],

@@ -18,31 +18,6 @@ class ResUsers(models.Model):
     _inherit = 'res.users'
 
     @api.model
-    def create(self, vals):
-        res = super(ResUsers, self).create(vals)
-        if res.source == 'Freja eID':
-            email_alias_from_param = self.env['ir.config_parameter'].sudo().get_param('mail_emailalias_alias')
-            mailbox = ''
-            if res.mailbox_ids and res.mailbox_ids[0].mailbox_id:
-                mailbox = res.mailbox_ids[0].mailbox_id.name
-            ssn_alias = ''
-            alias = ''
-            name = res.firstname.lower() + '.' + res.lastname.lower()
-            for user_alias in res.alias_ids:
-                if user_alias.no_portal_update and name in user_alias.alias_id.name:
-                    ssn_alias = user_alias.alias_id.name
-                elif user_alias.no_portal_update:
-                    alias = user_alias.alias_id.name
-            template = self.env.ref('freja_eid_integration.mail_template_new_user_confirmation')
-            template_values = {
-                'email_from': 'info' + email_alias_from_param,
-                'email_to': mailbox,
-            }
-            template.write(template_values)
-            template.with_context(mailbox=mailbox,ssn_alias=ssn_alias,alias=alias).send_mail(res.id, force_send=False)
-        return res
-
-    @api.model
     def _auth_oauth_rpc(self, provider, endpoint, access_token):
         if provider and provider.name != 'Freja eID':
             return requests.get(endpoint, params={'access_token': access_token}).json()
@@ -82,7 +57,7 @@ class ResUsers(models.Model):
                 _logger.error("Insdide if datapoint")
                 access_token = validation.get('access_token')
                 response = requests.get(oauth_provider.data_endpoint,
-                                        params={'access_token': access_token})
+                                        params={'access_token': access_token})                
                 _logger.error(response.url)
                 _logger.error(response.text)
                 _logger.error(response.request)
@@ -115,7 +90,6 @@ class ResUsers(models.Model):
             'social_sec_nr': validation.get('https://frejaeid.com/oidc/claims/personalIdentityNumber') if \
                 'https://frejaeid.com/oidc/claims/personalIdentityNumber' in validation else '',
             'country_id': country_id,
-            'source': 'Freja eID'
         }
 
     @api.model
@@ -183,7 +157,7 @@ class ResUsers(models.Model):
         # else:
         #   continue with the process
         oauth_provider = self.env['auth.oauth.provider'].browse(provider)
-        access_token = params.get('access_token') if oauth_provider.name != 'Freja eID' else params.get('code')
+        access_token = params.get('code') # old way: access_token = params.get('access_token') if oauth_provider.name != 'Freja eID' else params.get('code')
         validation = self._auth_oauth_validate(provider, access_token)
         # required check
         if oauth_provider.name != 'Freja eID':
